@@ -1,0 +1,1 @@
+from .mqttpublish import main

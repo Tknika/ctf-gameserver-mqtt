@@ -1,0 +1,14 @@
+- name: "Add config for CTF Gameserver MQTT publisher"
+  ansible.builtin.template:
+    src: mqtt.env.j2
+    dest: /etc/ctf-gameserver/mqtt.env
+    owner: root
+    group: root
+    mode: "0600"
+  notify:
+    - Restart CTF Gameserver controller
+
+- name: "Enable CTF Gameserver MQTT pulisher service"
+  ansible.builtin.service:
+    name: ctf-controller
+    enabled: true
